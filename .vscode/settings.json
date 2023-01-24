@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "**/.angular": true,
+        "**/.editorconfig": true,
+        "**/.vscode": true,
+        "**/bin": true,
+        "**/node_modules": true,
+        "**/obj": true
+    }
+}
