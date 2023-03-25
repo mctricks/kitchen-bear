@@ -16,7 +16,13 @@ public partial class KitchenBearContext : DbContext
         : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source=localhost\\SQLEXPRESS;Initial Catalog=KitchenBear-Dev;TrustServerCertificate=True;Integrated Security=True;");
+        => optionsBuilder.UseNpgsql(
+            "host = localhost; " + 
+            "port = 5432; " +
+            "database = KitchenBear-Dev; " + 
+            "user id = postgres; " + 
+            "password = 12Datacats; "
+        );
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddSqlServer<KitchenBearContext>(builder.Configuration[Constants.ConnectionString]);
+builder.Services.AddNpgsql<KitchenBearContext>(builder.Configuration[Constants.ConnectionString]);
 
 builder.Services.AddScoped<IIngredientRepository, IngredientRepository>();
 builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();

@@ -1,0 +1,30 @@
+mat-toolbar {
+  height: var(--toolbar-height);
+}
+mat-sidenav-content {
+  height: calc(100vh - var(--toolbar-height));
+}
+.top-gap {
+  margin-top: var(--toolbar-height);
+}
+.loader {
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkite-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+.content {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+}
+.router-card {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: var(--content-padding);
+}
+.header-toolbar {
+  padding-left: calc((100vw - var(--max-content-width)) / 2);
+}

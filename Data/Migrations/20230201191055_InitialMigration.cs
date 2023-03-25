@@ -1,26 +1,45 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
 namespace KitchenBear.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class AddedRecipe : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Ingredients",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Unit = table.Column<string>(type: "text", nullable: false),
+                    Stocked = table.Column<bool>(type: "boolean", nullable: false),
+                    Perishable = table.Column<bool>(type: "boolean", nullable: false),
+                    Calories = table.Column<int>(type: "integer", nullable: false),
+                    Price = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Ingredients", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Recipes",
                 columns: table => new
                 {
-                    id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Servings = table.Column<int>(type: "int", nullable: false),
-                    Instructions = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: false),
+                    Servings = table.Column<int>(type: "integer", nullable: false),
+                    Instructions = table.Column<string>(type: "text", nullable: false),
+                    Tags = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -31,8 +50,8 @@ namespace KitchenBear.Data.Migrations
                 name: "IngredientRecipe",
                 columns: table => new
                 {
-                    Ingredientsid = table.Column<int>(type: "int", nullable: false),
-                    Recipesid = table.Column<int>(type: "int", nullable: false)
+                    Ingredientsid = table.Column<int>(type: "integer", nullable: false),
+                    Recipesid = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,6 +81,9 @@ namespace KitchenBear.Data.Migrations
         {
             migrationBuilder.DropTable(
                 name: "IngredientRecipe");
+
+            migrationBuilder.DropTable(
+                name: "Ingredients");
 
             migrationBuilder.DropTable(
                 name: "Recipes");

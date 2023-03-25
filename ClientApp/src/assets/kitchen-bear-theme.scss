@@ -1,0 +1,107 @@
+@import "./../../node_modules/@angular/material/theming";
+@include mat-core();
+
+$md-redviolet: (
+    50 : #f2e6e7,
+    100 : #dec0c4,
+    200 : #c8979d,
+    300 : #b16d76,
+    400 : #a14d58,
+    500 : #902e3b,
+    600 : #882935,
+    700 : #7d232d,
+    800 : #731d26,
+    900 : #611219,
+    A100 : #ff989f,
+    A200 : #ff6570,
+    A400 : #ff3240,
+    A700 : #ff1928,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+$md-blackcoral: (
+    50 : #ebebee,
+    100 : #c1c1cb,
+    200 : #a3a3b1,
+    300 : #7c7c90,
+    400 : #6d6d81,
+    500 : #5f5f70,
+    600 : #51515f,
+    700 : #43434f,
+    800 : #35353e,
+    900 : #27272e,
+    A100 : #dedef0,
+    A200 : #9797d1,
+    A400 : #64649e,
+    A700 : #656584,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+$md-sinopia: (
+    50 : #fbe7e2,
+    100 : #f5c4b6,
+    200 : #ee9d85,
+    300 : #e77554,
+    400 : #e25830,
+    500 : #dd3a0b,
+    600 : #d9340a,
+    700 : #d42c08,
+    800 : #cf2506,
+    900 : #c71803,
+    A100 : #fff0ef,
+    A200 : #ffc0bc,
+    A400 : #ff9189,
+    A700 : #ff796f,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$my-app-primary: mat-palette($md-redviolet);
+$my-app-accent: mat-palette($md-blackcoral, 500, 900, A100);
+$my-app-warn: mat-palette($md-sinopia);
+
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+
+@include angular-material-theme($my-app-theme);
