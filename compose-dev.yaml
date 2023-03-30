@@ -3,7 +3,7 @@ services:
     entrypoint:
     - sleep
     - infinity
-    image: docker/dev-environments-default:stable-1
+    image: ubuntu/dotnet-aspnet:7.0-23.04_42
     init: true
     volumes:
     - type: bind
